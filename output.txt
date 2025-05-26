@@ -1,2 +1,0 @@
-Unique Vowels: a i 
-Total Count of Vowels: 4
