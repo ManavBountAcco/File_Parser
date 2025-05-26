@@ -26,6 +26,7 @@ public class Main {
     public static void processInput(String input) {
         // Initialize a Set to store unique words starting with a vowel
         Set<String> uniqueWords = new HashSet<>();
+        ArrayList<String> result = new ArrayList<>();
 
         // Initialize a variable to track the total count of words starting with a vowel
         int totalVowelStartingWordsCount = 0;
@@ -39,12 +40,13 @@ public class Main {
             if (startsWithVowel(word)) {
                 // Add the word to the set (unique words)
                 uniqueWords.add(word.toLowerCase()); // Ensure case-insensitivity
+                result.add(word);
                 totalVowelStartingWordsCount++;
             }
         }
 
         // Write the unique words and counts to the output file
-        writeToFile(uniqueWords, totalVowelStartingWordsCount, words.length);
+        writeToFile(uniqueWords, totalVowelStartingWordsCount, words.length , result);
     }
 
     // Check if the word starts with a vowel
@@ -53,14 +55,14 @@ public class Main {
         return "aeiou".indexOf(firstChar) != -1; // Check if it's a vowel
     }
 
-    public static void writeToFile(Set<String> uniqueWords, int totalVowelStartingWordsCount, int totalWordCount) {
+    public static void writeToFile(Set<String> uniqueWords, int totalVowelStartingWordsCount, int totalWordCount, ArrayList result) {
         // Output file path
         String filePath = "output.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
             // Write unique words that start with a vowel
-            writer.write("Unique Words Starting with Vowels: ");
-            for (String word : uniqueWords) {
+            writer.write(" Words Starting with Vowels: ");
+            for (Object word : result) {
                 writer.write(word + " ");
             }
             writer.newLine();

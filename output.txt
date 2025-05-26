@@ -1,8 +1,8 @@
-Unique Words Starting with Vowels: octopus umbrella apron orange
-bamboo echo apple
-lizard elephant
-meadow adventure apricot ocean ocean
+ Words Starting with Vowels: echo apron apple
+lizard emerald orange
+bamboo octopus elephant ocean adventure umbrella apricot elephant
+meadow ocean
 
-basket anchor elephant emerald 
+Basket anchor 
 Total Count of Words Starting with Vowels: 14
 Total Word Count: 209
