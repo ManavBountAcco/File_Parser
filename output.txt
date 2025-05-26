@@ -1,2 +1,3 @@
-Unique Vowels: a i 
-Total Count of Vowels: 2
+Unique Words Starting with Vowels: anish 
+Total Count of Words Starting with Vowels: 1
+Total Word Count: 2
