@@ -22,31 +22,62 @@ public class Main {
     }
 
     public static void processInput(String input) {
-        // Initialize a Set to store unique strings
-        Set<String> uniqueStrings = new HashSet<>();
+        // Initialize a Set to store unique vowels
+        Set<Character> uniqueVowels = new HashSet<>();
 
-        // Split the input into lines
-        String[] lines = input.split("\n");
+        // Split the input into words
+        String[] words = input.split(" ");
 
-        // Add each line to the Set (duplicates will be ignored)
-        for (String line : lines) {
-            uniqueStrings.add(line.trim());  // trim() to avoid leading/trailing spaces
+        // Count of vowels
+        int totalVowelsCount = 0;
+
+        // Loop through each word
+        for (String word : words) {
+            // Check if the word starts with a vowel
+            if (startsWithVowel(word)) {
+                // Loop through each character of the word
+                for (char c : word.toLowerCase().toCharArray()) {
+                    // Check if the character is a vowel
+                    if (isVowel(c)) {
+                        // Add the vowel to the set (unique vowels)
+                        uniqueVowels.add(c);
+                        totalVowelsCount++;
+                    }
+                }
+            }
         }
 
-        // Write the unique strings to the output file
-        writeToFile(uniqueStrings);
+        // Write the unique vowels and total vowel count to the output file
+        writeToFile(uniqueVowels, totalVowelsCount);
     }
 
-    public static void writeToFile(Set<String> uniqueStrings) {
+    // Check if the word starts with a vowel
+    public static boolean startsWithVowel(String word) {
+        char firstChar = word.toLowerCase().charAt(0); // Get the first character of the word
+        return "aeiou".indexOf(firstChar) != -1; // Check if it's a vowel
+    }
+
+    // Check if the character is a vowel
+    public static boolean isVowel(char c) {
+        return "aeiou".indexOf(c) != -1; // returns true if c is a vowel
+    }
+
+    public static void writeToFile(Set<Character> uniqueVowels, int totalVowelsCount) {
         // Output file path
         String filePath = "output.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, false))) {
-            // Overwrite or create the file
-            for (String uniqueString : uniqueStrings) {
-                writer.write(uniqueString);
-                writer.newLine();
+            // Write unique vowels
+            writer.write("Unique Vowels: ");
+            for (Character vowel : uniqueVowels) {
+                writer.write(vowel + " ");
             }
+            writer.newLine();
+
+            // Write total count of vowels
+            writer.write("Total Count of Vowels: " + totalVowelsCount);
+            writer.newLine();
+
             System.out.println("Data written to output.txt successfully.");
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
