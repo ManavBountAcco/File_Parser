@@ -12,7 +12,6 @@ public class Main {
     public static void main(String[] args)  throws IOException {
                 Path filePath = Path.of(".//input.txt");
                 String content = Files.readString(filePath);
-                System.out.println(content);
         //code to read and generate By manav>
         //Approach : -> String -> O(n) read -> Add in Set -> add in output.txt if not generate else overwrite
 
