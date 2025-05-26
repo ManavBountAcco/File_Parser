@@ -1,3 +1,8 @@
-Unique Words Starting with Vowels: anish 
-Total Count of Words Starting with Vowels: 1
-Total Word Count: 2
+Unique Words Starting with Vowels: octopus umbrella apron orange
+bamboo echo apple
+lizard elephant
+meadow adventure apricot ocean ocean
+
+basket anchor elephant emerald 
+Total Count of Words Starting with Vowels: 14
+Total Word Count: 209
